@@ -3,139 +3,410 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ayman Kamel · Game Developer</title>
-<meta name="description" content="Ayman Kamel: Unreal Engine 5 C++ game developer. Projects: DUATFALL, GRIDLINE, HEARTHWAKE.">
+<title>Ayman Kamel · Game &amp; Simulation Developer</title>
+<meta name="description" content="Ayman Kamel: mechanical engineer and software developer building Unreal Engine 5 C++ games with a physics and simulation background.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #f6f1e7;
-  --surface: #ffffff;
-  --text: #1c1a17;
-  --muted: #5d574d;
-  --line: #e2d9c8;
-  --accent: #b5731a;
-  --accent-2: #1f4e8c;
-  --chip: #f1e7d4;
+  --bg: #0a0e17;
+  --bg-2: #0f1522;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-2: rgba(255, 255, 255, 0.07);
+  --line: rgba(255, 255, 255, 0.09);
+  --text: #eef1f6;
+  --muted: #98a2b3;
+  --accent: #f0a93b;
+  --accent-2: #3fb8ff;
+  --glow: rgba(240, 169, 59, 0.22);
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0f1420;
-    --surface: #171e2d;
-    --text: #ece6da;
-    --muted: #a39c8f;
-    --line: #283246;
-    --accent: #e0a24a;
-    --accent-2: #7fa8e0;
-    --chip: #222b3d;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0f1420;
-  --surface: #171e2d;
-  --text: #ece6da;
-  --muted: #a39c8f;
-  --line: #283246;
-  --accent: #e0a24a;
-  --accent-2: #7fa8e0;
-  --chip: #222b3d;
+:root[data-theme="light"] {
+  --bg: #f7f5f0;
+  --bg-2: #efebe2;
+  --surface: rgba(0, 0, 0, 0.03);
+  --surface-2: rgba(0, 0, 0, 0.06);
+  --line: rgba(0, 0, 0, 0.1);
+  --text: #15181e;
+  --muted: #5b6270;
+  --accent: #b86e0a;
+  --accent-2: #0b6fb0;
+  --glow: rgba(184, 110, 10, 0.15);
 }
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  background: var(--bg);
+  background: radial-gradient(1200px 600px at 80% -10%, var(--glow), transparent 60%), var(--bg);
   color: var(--text);
-  font: 16px/1.6 Inter, system-ui, sans-serif;
+  font: 16px/1.65 Inter, system-ui, sans-serif;
+  overflow-x: hidden;
 }
-a { color: var(--accent-2); }
-.wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
-header { padding: 72px 0 40px; border-bottom: 1px solid var(--line); }
-.eyebrow { color: var(--accent); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; font-size: 13px; margin: 0 0 12px; }
-h1 { font-family: Cinzel, serif; font-size: clamp(34px, 6vw, 56px); line-height: 1.1; margin: 0 0 16px; }
-.lead { font-size: 19px; color: var(--muted); max-width: 680px; margin: 0 0 24px; }
-.links { display: flex; flex-wrap: wrap; gap: 12px; }
-.btn { display: inline-block; padding: 10px 18px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--text); text-decoration: none; font-weight: 500; }
-.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-section { padding: 56px 0; border-bottom: 1px solid var(--line); }
-h2 { font-family: Cinzel, serif; font-size: 28px; margin: 0 0 8px; }
-.sub { color: var(--muted); margin: 0 0 32px; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; }
-.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 24px; display: flex; flex-direction: column; }
-.card h3 { font-family: Cinzel, serif; font-size: 22px; margin: 0 0 4px; letter-spacing: .04em; }
-.genre { color: var(--accent); font-weight: 600; font-size: 14px; margin: 0 0 12px; }
-.card p { margin: 0 0 16px; }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; padding: 0; list-style: none; }
-.chips li { background: var(--chip); border-radius: 999px; padding: 4px 10px; font-size: 13px; }
-.status { font-size: 13px; color: var(--muted); margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
-.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-right: 6px; }
-.principles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-.principles div { border-left: 3px solid var(--accent); padding-left: 14px; }
-.principles strong { display: block; margin-bottom: 4px; }
-code { font-family: "JetBrains Mono", monospace; font-size: 14px; background: var(--chip); padding: 1px 6px; border-radius: 4px; }
-footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; }
+a { color: inherit; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+.mono { font-family: "JetBrains Mono", monospace; }
+
+/* Navbar */
+nav {
+  position: sticky; top: 14px; z-index: 20;
+  margin: 14px auto 0; max-width: 1120px; padding: 0 16px;
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 10px 12px 10px 20px; border: 1px solid var(--line); border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 75%, transparent); backdrop-filter: blur(14px);
+}
+.brand { display: flex; align-items: center; gap: 10px; font-family: "Space Grotesk"; font-weight: 700; letter-spacing: .08em; font-size: 14px; text-decoration: none; }
+.brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+.nav-links { display: flex; gap: 22px; font-size: 14px; color: var(--muted); }
+.nav-links a { text-decoration: none; }
+.nav-links a:hover { color: var(--text); }
+.nav-actions { display: flex; gap: 8px; align-items: center; }
+.pill { border: 1px solid var(--line); background: var(--surface); color: var(--text); border-radius: 999px; padding: 8px 14px; font: 500 14px Inter; cursor: pointer; text-decoration: none; }
+.pill.solid { background: var(--text); color: var(--bg); border-color: var(--text); }
+@media (max-width: 760px) { .nav-links { display: none; } }
+
+/* Hero */
+.hero { padding: 90px 16px 70px; display: grid; grid-template-columns: 1.3fr .9fr; gap: 48px; align-items: center; }
+@media (max-width: 860px) { .hero { grid-template-columns: 1fr; padding-top: 56px; } .hero .avatar { width: 180px; order: -1; justify-self: start; } }
+.kicker { color: var(--accent-2); font: 600 13px "Space Grotesk"; letter-spacing: .16em; text-transform: uppercase; margin: 0 0 18px; }
+h1 { font-family: "Space Grotesk"; font-size: clamp(48px, 9vw, 92px); line-height: .95; margin: 0 0 24px; letter-spacing: -.02em; }
+h1 .outline { color: transparent; -webkit-text-stroke: 1.5px var(--accent); }
+.tagline { font: 600 clamp(18px, 2.4vw, 22px) "Space Grotesk"; margin: 0 0 16px; }
+.hero p { color: var(--muted); margin: 0 0 14px; max-width: 620px; }
+.hero p b { color: var(--text); font-weight: 600; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 999px; font-weight: 600; text-decoration: none; border: 1px solid var(--line); background: var(--surface); }
+.btn.primary { background: var(--accent); color: #1a1206; border-color: var(--accent); }
+.avatar {
+  aspect-ratio: 1; width: min(100%, 340px); justify-self: center; border-radius: 50%;
+  display: grid; place-items: center; position: relative;
+  background: conic-gradient(from 200deg, var(--accent), var(--accent-2), var(--accent));
+  padding: 3px; box-shadow: 0 0 80px var(--glow);
+}
+.avatar-inner {
+  width: 100%; height: 100%; border-radius: 50%; background: var(--bg-2);
+  display: grid; place-items: center; font: 700 clamp(64px, 10vw, 110px) "Space Grotesk"; letter-spacing: -.04em;
+}
+.avatar-inner span { background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 36px; max-width: 560px; }
+.stat { border: 1px solid var(--line); border-radius: 14px; padding: 14px; background: var(--surface); }
+.stat strong { display: block; font: 700 24px "Space Grotesk"; }
+.stat span { color: var(--muted); font-size: 13px; }
+
+/* Sections */
+section { padding: 90px 0; }
+.eyebrow { color: var(--accent-2); font: 600 13px "Space Grotesk"; letter-spacing: .16em; text-transform: uppercase; text-align: center; margin: 0 0 10px; }
+h2 { font-family: "Space Grotesk"; font-size: clamp(32px, 5vw, 48px); text-align: center; margin: 0 0 12px; letter-spacing: -.01em; }
+.section-sub { color: var(--muted); text-align: center; max-width: 640px; margin: 0 auto 48px; }
+
+/* Carousel */
+.carousel { position: relative; }
+.track { display: grid; grid-auto-flow: column; grid-auto-columns: min(360px, 84vw); gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px 4px 24px; scrollbar-width: thin; }
+.proj {
+  scroll-snap-align: center; border: 1px solid var(--line); border-radius: 20px; overflow: hidden;
+  background: var(--surface); display: flex; flex-direction: column; transition: transform .25s, border-color .25s;
+}
+.proj:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); }
+.proj-art { height: 170px; position: relative; display: grid; place-items: center; font: 700 30px "Space Grotesk"; letter-spacing: .12em; color: #fff; text-shadow: 0 2px 20px rgba(0,0,0,.5); }
+.proj-art small { position: absolute; top: 12px; left: 12px; font: 600 11px Inter; letter-spacing: .08em; text-transform: uppercase; background: rgba(0,0,0,.45); padding: 4px 10px; border-radius: 999px; }
+.art-duat { background: radial-gradient(circle at 50% 120%, #f0a93b 0%, #8a3b12 35%, #1a2244 75%); }
+.art-grid { background: linear-gradient(135deg, #0b3b5c, #0e1a2b); background-image: linear-gradient(rgba(63,184,255,.25) 1px, transparent 1px), linear-gradient(90deg, rgba(63,184,255,.25) 1px, transparent 1px), linear-gradient(135deg, #0b3b5c, #0e1a2b); background-size: 24px 24px, 24px 24px, auto; }
+.art-hearth { background: radial-gradient(circle at 50% 70%, #ff9a3c 0%, #7a3d1a 25%, #1c3448 60%, #c9e3f2 140%); }
+.art-mesh { background: linear-gradient(135deg, #3a1c5c, #121a33); }
+.art-rail { background: linear-gradient(135deg, #0f4d3a, #10202a); }
+.proj-body { padding: 20px; display: flex; flex-direction: column; flex: 1; }
+.proj-body h3 { font: 700 20px "Space Grotesk"; margin: 0 0 6px; }
+.proj-body p { color: var(--muted); margin: 0 0 14px; font-size: 15px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 18px; padding: 0; list-style: none; }
+.tags li { font: 500 12px "JetBrains Mono"; padding: 4px 9px; border-radius: 6px; background: var(--surface-2); color: var(--text); }
+.proj-body button { margin-top: auto; align-self: flex-start; }
+.car-ctrl { display: flex; justify-content: center; gap: 10px; }
+.car-ctrl button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--text); font-size: 18px; cursor: pointer; }
+
+/* Modal */
+dialog { max-width: 720px; width: calc(100% - 32px); border: 1px solid var(--line); border-radius: 20px; background: var(--bg-2); color: var(--text); padding: 0; }
+dialog::backdrop { background: rgba(0,0,0,.6); backdrop-filter: blur(4px); }
+.modal-body { padding: 28px; }
+.modal-body h3 { font: 700 28px "Space Grotesk"; margin: 0 0 4px; }
+.modal-body .status { color: var(--accent); font-weight: 600; font-size: 14px; margin: 0 0 18px; }
+.modal-body h4 { font: 600 15px "Space Grotesk"; margin: 22px 0 8px; color: var(--accent-2); text-transform: uppercase; letter-spacing: .1em; }
+.modal-body ul { margin: 0; padding-left: 20px; color: var(--muted); }
+.modal-body li { margin-bottom: 6px; }
+.modal-actions { display: flex; gap: 10px; flex-wrap: wrap; padding: 0 28px 28px; }
+
+/* Principles */
+.principles { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.principle { border: 1px solid var(--line); border-radius: 16px; padding: 22px; background: var(--surface); }
+.principle .ico { font-size: 22px; margin-bottom: 10px; }
+.principle strong { display: block; font: 600 17px "Space Grotesk"; margin-bottom: 4px; }
+.principle span { color: var(--muted); font-size: 14px; }
+
+/* Expertise */
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.skill { border: 1px solid var(--line); border-radius: 16px; padding: 22px; background: var(--surface); }
+.skill h3 { font: 600 18px "Space Grotesk"; margin: 0 0 14px; }
+
+/* Timeline */
+.about { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+@media (max-width: 860px) { .about { grid-template-columns: 1fr; } }
+.about h3 { font: 700 22px "Space Grotesk"; margin: 0 0 18px; }
+.tl { border-left: 2px solid var(--line); padding-left: 22px; }
+.tl-item { position: relative; margin-bottom: 26px; }
+.tl-item::before { content: ""; position: absolute; left: -29px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--bg); }
+.tl-item strong { display: block; font: 600 16px "Space Grotesk"; }
+.tl-item .when { font: 500 13px "JetBrains Mono"; color: var(--accent-2); }
+.tl-item p { color: var(--muted); margin: 6px 0 0; font-size: 15px; }
+.philosophy { text-align: center; max-width: 760px; margin: 0 auto 56px; }
+.philosophy h2 span { color: var(--accent); }
+.philosophy p { color: var(--muted); }
+
+/* Contact */
+.contact { text-align: center; border: 1px solid var(--line); border-radius: 28px; padding: 64px 20px; background: radial-gradient(600px 300px at 50% 0%, var(--glow), transparent 70%), var(--surface); }
+.contact h2 { margin-bottom: 28px; }
+.contact .cta { justify-content: center; }
+footer { text-align: center; color: var(--muted); font-size: 14px; padding: 40px 16px 56px; }
+
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <p class="eyebrow">Game developer · Unreal Engine 5 · C++</p>
-    <h1>Ayman Kamel</h1>
-    <p class="lead">I build game systems that are data-driven, tested and easy to reason about: abilities, AI, procedural generation and networking. My current work is three Unreal Engine 5.8 projects, each developed in the open with a design document and a milestone log.</p>
-    <div class="links">
-      <a class="btn primary" href="https://github.com/aymank2020">GitHub</a>
-      <a class="btn" href="#projects">Projects</a>
+
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="#top"><span class="dot"></span>AYMAN KAMEL</a>
+    <div class="nav-links">
+      <a href="#work">Work</a><a href="#principles">Principles</a><a href="#expertise">Expertise</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="pill" id="theme" aria-label="Toggle light and dark theme">◐</button>
+      <a class="pill solid" href="https://github.com/aymank2020">GitHub</a>
     </div>
   </div>
+</nav>
+
+<header class="wrap hero" id="top">
+  <div>
+    <p class="kicker">Game Developer · Unreal Engine 5 · C++</p>
+    <h1>Ayman<br><span class="outline">Kamel</span></h1>
+    <p class="tagline">Engineering game systems with the rigor of a physics solver.</p>
+    <p>I'm a <b>mechanical engineer and computer scientist</b> who builds numerical solvers, simulations and tested software. I'm now bringing that background to <b>Unreal Engine 5 C++</b>, where it matters most: <b>physics, AI, procedural generation and deterministic gameplay</b>.</p>
+    <p>I write reference tests, set numerical tolerances and verify behavior before I trust it, then ship code that is <b>data-driven, documented and easy to hand over</b>.</p>
+    <div class="cta">
+      <a class="btn primary" href="#work">Explore my work</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>8+ yrs</strong><span>shipping software</span></div>
+      <div class="stat"><strong>2</strong><span>degrees, Eng. + CS</span></div>
+      <div class="stat"><strong>3</strong><span>UE5 games in progress</span></div>
+    </div>
+  </div>
+  <div class="avatar" aria-hidden="true"><div class="avatar-inner"><span>AK</span></div></div>
 </header>
 
 <main>
-<section id="projects">
+<section id="work">
   <div class="wrap">
-    <h2>Projects</h2>
-    <p class="sub">All three are in pre-production: the design is complete and development follows the roadmap in each repository.</p>
-    <div class="grid">
-      <article class="card">
-        <h3>DUATFALL</h3>
-        <p class="genre">Action roguelite · Egyptian underworld</p>
-        <p>A fallen scribe descends through the twelve hours of the night, choosing boons from Ra, Thoth, Sekhmet and Anubis. Death returns you to the Hall of Ma'at, stronger.</p>
-        <ul class="chips"><li>Gameplay Ability System</li><li>StateTree AI</li><li>Seeded run generation</li><li>Save migration</li></ul>
-        <div class="status"><span><span class="dot"></span>Pre-production</span><a href="https://github.com/aymank2020/duatfall">Repository &amp; design doc →</a></div>
-      </article>
-      <article class="card">
-        <h3>GRIDLINE</h3>
-        <p class="genre">Squad turn-based tactics</p>
-        <p>Salvage engineers fight rogue machines in a collapsing orbital station. Cover, flanking, overwatch and destructible walls in short missions.</p>
-        <ul class="chips"><li>Deterministic rules engine</li><li>A* &amp; line of sight</li><li>Utility AI</li><li>Replay by state hash</li></ul>
-        <div class="status"><span><span class="dot"></span>Pre-production</span><a href="https://github.com/aymank2020/gridline">Repository &amp; design doc →</a></div>
-      </article>
-      <article class="card">
-        <h3>HEARTHWAKE</h3>
-        <p class="genre">Co-op survival crafting · 1–4 players</p>
-        <p>Wake on a frozen island, gather and craft, and build a network of hearths to hold back the frost while frost-wraiths attack at night.</p>
-        <ul class="chips"><li>Server-authoritative replication</li><li>FastArray inventory</li><li>Structural building</li><li>PCG world</li></ul>
-        <div class="status"><span><span class="dot"></span>Pre-production</span><a href="https://github.com/aymank2020/hearthwake">Repository &amp; design doc →</a></div>
-      </article>
+    <p class="eyebrow">Selected work</p>
+    <h2>Featured Projects</h2>
+    <p class="section-sub">Three Unreal Engine 5 games in active development, plus solver and production work that shaped how I build them. Open any card for the full case study.</p>
+    <div class="carousel reveal">
+      <div class="track" id="track"></div>
+      <div class="car-ctrl"><button id="prev" aria-label="Previous project">←</button><button id="next" aria-label="Next project">→</button></div>
     </div>
   </div>
 </section>
 
-<section>
+<section id="principles">
   <div class="wrap">
-    <h2>How I work</h2>
-    <p class="sub">The habits that make a codebase easy to extend, review and hand over.</p>
-    <div class="principles">
-      <div><strong>C++ first</strong>Gameplay logic lives in C++; Blueprints only wire data and visuals.</div>
-      <div><strong>Data-driven</strong>Tuning lives in Data Assets and DataTables, never in magic numbers.</div>
-      <div><strong>Tested</strong>Automation specs run headless from the CLI before every commit.</div>
-      <div><strong>Honest history</strong>Small commits that explain <em>why</em>. AI assistance is credited in the history, which is never rewritten.</div>
+    <p class="eyebrow">Core philosophy</p>
+    <h2>Engineering Principles</h2>
+    <p class="section-sub">A fun game still needs solid engineering underneath. These are the rules I build by.</p>
+    <div class="principles reveal">
+      <div class="principle"><div class="ico">⚙️</div><strong>C++ first</strong><span>Gameplay logic in C++; Blueprints wire data and visuals.</span></div>
+      <div class="principle"><div class="ico">📊</div><strong>Data-driven design</strong><span>Tuning lives in Data Assets and tables, never in magic numbers.</span></div>
+      <div class="principle"><div class="ico">🎲</div><strong>Determinism</strong><span>Seeded randomness and replayable state, so bugs can be reproduced.</span></div>
+      <div class="principle"><div class="ico">🧪</div><strong>Verified, not assumed</strong><span>Reference tests, tolerances and property tests before every commit.</span></div>
+      <div class="principle"><div class="ico">⏱️</div><strong>Frame budget</strong><span>60 fps as a requirement, measured with profiling rather than guesswork.</span></div>
+      <div class="principle"><div class="ico">🌐</div><strong>Server authority</strong><span>Clients send intent; the server validates it and replicates the result.</span></div>
+      <div class="principle"><div class="ico">🧩</div><strong>Separation of concerns</strong><span>Rules engines stay independent of rendering and UI.</span></div>
+      <div class="principle"><div class="ico">📝</div><strong>Honest history</strong><span>Small commits that explain why. AI assistance is credited, never hidden.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="expertise">
+  <div class="wrap">
+    <p class="eyebrow">Expertise</p>
+    <h2>Technical Expertise</h2>
+    <p class="section-sub">The tools and techniques I use, from engine systems to the numerical methods underneath.</p>
+    <div class="skills reveal">
+      <div class="skill"><h3>🎮 Unreal Engine 5</h3><ul class="tags"><li>C++</li><li>Gameplay Ability System</li><li>StateTree</li><li>Enhanced Input</li><li>Replication</li><li>PCG</li><li>Automation Tests</li></ul></div>
+      <div class="skill"><h3>🧮 Physics &amp; Numerics</h3><ul class="tags"><li>FEM / FEA</li><li>Newton-Raphson</li><li>Arc-length methods</li><li>Modal analysis</li><li>Numerical linear algebra</li><li>Stability checks</li></ul></div>
+      <div class="skill"><h3>🧠 Algorithms &amp; AI</h3><ul class="tags"><li>A* / Dijkstra</li><li>Constraint solving</li><li>AC-3 / AC-4</li><li>Search heuristics</li><li>Utility AI</li><li>State machines</li></ul></div>
+      <div class="skill"><h3>🧪 Testing &amp; Quality</h3><ul class="tags"><li>pytest</li><li>Hypothesis</li><li>Property-based testing</li><li>Reference comparisons</li><li>Regression suites</li></ul></div>
+      <div class="skill"><h3>💻 Languages</h3><ul class="tags"><li>C / C++</li><li>Python</li><li>Dart / Flutter</li><li>Java / Kotlin</li><li>TypeScript</li></ul></div>
+      <div class="skill"><h3>🚀 Tooling &amp; Delivery</h3><ul class="tags"><li>Git &amp; Git LFS</li><li>GitHub Actions</li><li>Docker</li><li>Linux</li><li>NumPy / SciPy</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="philosophy reveal">
+      <p class="eyebrow">Behind the code</p>
+      <h2>Trained in <span>mechanics</span>.<br>Driven by <span>play</span>.</h2>
+      <p>My background in structural mechanics taught me to distrust results I haven't verified. I build games the same way I built solvers: a clear model, explicit assumptions, tests against known answers, and measured performance. The difference is that the end result has to be fun.</p>
+    </div>
+    <div class="about reveal">
+      <div>
+        <h3>Experience</h3>
+        <div class="tl">
+          <div class="tl-item"><span class="when">2026</span><strong>Numerical Solver / Structures Task Contributor · Prometheus</strong><p>Built structural-engineering benchmark tasks for AI coding agents, with reference solutions, tests, scoring logic and reproducible evaluation.</p></div>
+          <div class="tl-item"><span class="when">2025 – 2026</span><strong>Railway Secretariat System · Egyptian National Railways</strong><p>Production correspondence system in Flutter with Clean Architecture, OCR/PDF import, authentication hardening and Docker deployment.</p></div>
+          <div class="tl-item"><span class="when">2017 – present</span><strong>Android / Flutter Developer · Freelancer.com</strong><p>Mobile, desktop and web applications with automated tests and deployment workflows.</p></div>
+          <div class="tl-item"><span class="when">2016 – present</span><strong>AI Trainer / Data Quality Specialist</strong><p>Prompt writing, response evaluation, STEM rubrics and bilingual (Arabic/English) quality review.</p></div>
+        </div>
+      </div>
+      <div>
+        <h3>Education &amp; Training</h3>
+        <div class="tl">
+          <div class="tl-item"><span class="when">2024</span><strong>B.Sc. Computer Science · Cairo University</strong></div>
+          <div class="tl-item"><span class="when">2012</span><strong>B.Eng. Mechanical Engineering · Higher Technology Institute</strong><p>English program.</p></div>
+          <div class="tl-item"><span class="when">Online</span><strong>Algorithms · Princeton University</strong></div>
+          <div class="tl-item"><span class="when">2024 – 2025</span><strong>Embedded Linux · Luxoft Egypt, Orange Digital Center</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact reveal">
+      <p class="eyebrow">Let's talk</p>
+      <h2>Let's build something worth playing.</h2>
+      <div class="cta">
+        <a class="btn primary" href="https://www.linkedin.com/in/aymankamel2020">LinkedIn</a>
+        <a class="btn" href="https://github.com/aymank2020">GitHub</a>
+        <a class="btn" href="mailto:aymankamel24@gmail.com">Email</a>
+      </div>
     </div>
   </div>
 </section>
 </main>
 
-<footer>
-  <div class="wrap">© 2026 Ayman Kamel · <a href="https://github.com/aymank2020">github.com/aymank2020</a></div>
-</footer>
+<footer>© 2026 Ayman Kamel Korany Bayoumi · Giza, Egypt · Remote (GMT+3)</footer>
+
+<dialog id="modal">
+  <div class="modal-body" id="modal-body"></div>
+  <div class="modal-actions" id="modal-actions"></div>
+</dialog>
+
+<script>
+const projects = [
+  {
+    name: "DUATFALL", art: "art-duat", badge: "Unreal Engine 5 · In development",
+    blurb: "Action roguelite set in the Duat, the Egyptian underworld. Choose boons from Ra, Thoth, Sekhmet and Anubis.",
+    tags: ["C++", "GAS", "StateTree", "Seeded runs"],
+    status: "Pre-production: design locked, engine milestones next",
+    problem: ["Build a replayable combat game where every run feels different, yet every bug can be reproduced."],
+    approach: ["Abilities, attributes and boons built on the Gameplay Ability System", "Enemy AI in StateTree, with ranged, elite and a 3-phase boss", "Seeded run generation owned by a GameInstance subsystem", "Versioned save data with migration tests"],
+    quality: ["Automation specs for every system, run headless before each commit", "Target: 60 fps at 1080p on an RTX 4050 Laptop"],
+    links: [["Repository & design doc", "https://github.com/aymank2020/duatfall"]]
+  },
+  {
+    name: "GRIDLINE", art: "art-grid", badge: "Unreal Engine 5 · In development",
+    blurb: "Squad turn-based tactics in a collapsing orbital station: cover, flanking, overwatch and destructible walls.",
+    tags: ["C++", "A*", "Line of sight", "Utility AI"],
+    status: "Pre-production: design locked, core rules engine next",
+    problem: ["Tactics games live or die on trustworthy rules. Players must be able to read every outcome before committing."],
+    approach: ["A pure C++ rules module independent of Actors, rendering and UI", "Command pattern: every action validates, applies and emits events", "A* paths, Dijkstra movement ranges and supercover line of sight", "Utility AI scoring legal commands, with per-archetype weights in data"],
+    quality: ["A mission is seed + command list, and a replay must reproduce the same state hash", "Property tests on thousands of random maps; target of 100+ core tests"],
+    links: [["Repository & design doc", "https://github.com/aymank2020/gridline"]]
+  },
+  {
+    name: "HEARTHWAKE", art: "art-hearth", badge: "Unreal Engine 5 · In development",
+    blurb: "1–4 player co-op survival crafting on a frozen island. Build hearths, hold back the frost, survive the night.",
+    tags: ["C++", "Replication", "FastArray", "PCG"],
+    status: "Pre-production: design locked, networking milestones next",
+    problem: ["Keep a shared world consistent for four players, with no item duplication or loss, over real network conditions."],
+    approach: ["Server-authoritative design: clients send intent, the server validates", "FastArray inventory with idempotent, request-ID operations", "Structural building with stability computed from ground connections", "Seeded PCG resource scattering across three biomes"],
+    quality: ["Tests under 150 ms lag and 2% packet loss", "Network profiling documented per milestone"],
+    links: [["Repository & design doc", "https://github.com/aymank2020/hearthwake"]]
+  },
+  {
+    name: "ModelMesh", art: "art-mesh", badge: "Python · Constraint solver",
+    blurb: "Constraint-satisfaction toolkit for N-Queens, Sudoku, graph coloring and job-shop scheduling.",
+    tags: ["Python", "AC-3 / AC-4", "MRV / LCV", "Hypothesis"],
+    status: "Completed · 2026",
+    problem: ["Solve classic constraint problems with search that stays fast and provably correct."],
+    approach: ["AC-3 / AC-4 arc consistency and global constraints", "MRV, dom/wdeg and LCV search heuristics"],
+    quality: ["Hypothesis property-based tests and automated coverage of solver behavior"],
+    links: [["Repository", "https://github.com/aymank2020/ModelMesh"]]
+  },
+  {
+    name: "Railway Secretariat", art: "art-rail", badge: "Flutter · Production system",
+    blurb: "Correspondence system for Egyptian National Railways with OCR/PDF import and hardened authentication.",
+    tags: ["Flutter", "Dart", "SQLite", "Docker"],
+    status: "Production · 2025 – 2026",
+    problem: ["Replace paper-heavy correspondence tracking with a reliable desktop and server workflow."],
+    approach: ["Clean Architecture with Provider and SQLite, plus a Dart HTTP server", "OCR / PDF import, persistent sessions and recovery logic"],
+    quality: ["Authentication hardening, automated tests and Docker deployment"],
+    links: [["Repository", "https://github.com/aymank2020/Secretariat-System-for-Railways-Egypt"]]
+  }
+];
+
+const track = document.getElementById("track");
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+projects.forEach((p, i) => {
+  const card = document.createElement("article");
+  card.className = "proj";
+  card.innerHTML = `
+    <div class="proj-art ${p.art}"><small>${esc(p.badge)}</small>${esc(p.name)}</div>
+    <div class="proj-body">
+      <h3>${esc(p.name)}</h3>
+      <p>${esc(p.blurb)}</p>
+      <ul class="tags">${p.tags.map(t => `<li>${esc(t)}</li>`).join("")}</ul>
+      <button class="pill" data-i="${i}">View case study →</button>
+    </div>`;
+  track.appendChild(card);
+});
+
+const modal = document.getElementById("modal");
+const list = items => `<ul>${items.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
+track.addEventListener("click", e => {
+  const b = e.target.closest("button[data-i]");
+  if (!b) return;
+  const p = projects[+b.dataset.i];
+  document.getElementById("modal-body").innerHTML = `
+    <h3>${esc(p.name)}</h3><p class="status">${esc(p.status)}</p>
+    <h4>The challenge</h4>${list(p.problem)}
+    <h4>Approach</h4>${list(p.approach)}
+    <h4>Quality bar</h4>${list(p.quality)}`;
+  document.getElementById("modal-actions").innerHTML =
+    p.links.map(([t, u]) => `<a class="btn primary" href="${u}" target="_blank" rel="noopener">${esc(t)}</a>`).join("") +
+    `<button class="btn" onclick="modal.close()">Close</button>`;
+  modal.showModal();
+});
+modal.addEventListener("click", e => { if (e.target === modal) modal.close(); });
+
+const step = () => track.querySelector(".proj").offsetWidth + 20;
+document.getElementById("prev").onclick = () => track.scrollBy({ left: -step(), behavior: "smooth" });
+document.getElementById("next").onclick = () => track.scrollBy({ left: step(), behavior: "smooth" });
+
+const root = document.documentElement;
+try { const t = localStorage.getItem("theme"); if (t) root.dataset.theme = t; } catch (e) {}
+document.getElementById("theme").onclick = () => {
+  root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light";
+  try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+};
+
+const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add("in"); io.unobserve(x.target); } }), { threshold: .12 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
 </body>
 </html>

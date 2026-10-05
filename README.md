@@ -7,6 +7,11 @@ The homepage highlights scientific computing and the current Kepler project work
 to downloadable text in `scientific-profile.md`. Both pages link to the actual
 ORCID identifier verified in the account UI: `0009-0005-0592-408X`.
 
+`Ayman_Kamel_CV.pdf` is the two-page scientific-computing CV updated on
+5 October 2026 with Kepler project work and clickable ORCID/profile links.
+Homepage downloads retain their existing URL; the scientific profile also offers
+a direct CV download.
+
 Serve it locally with:
 
 ```sh

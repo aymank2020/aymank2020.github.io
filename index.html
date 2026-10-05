@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ayman Kamel · Game &amp; Simulation Developer</title>
-<meta name="description" content="Ayman Kamel: mechanical engineer and software developer building Unreal Engine 5 C++ games with a physics and simulation background.">
+<title>Ayman Kamel · Scientific Computing &amp; Software Engineering</title>
+<meta name="description" content="Ayman Kamel: scientific computing, computational mechanics and software engineering. Kepler modeling prototypes, numerical verification and scientific AI evaluation.">
+<link rel="canonical" href="https://aymank2020.github.io/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -71,6 +72,7 @@ nav {
 
 /* Hero */
 .hero { padding: 90px 16px 70px; display: grid; grid-template-columns: 1.3fr .9fr; gap: 48px; align-items: center; }
+.hero > div { min-width: 0; }
 @media (max-width: 860px) { .hero { grid-template-columns: 1fr; padding-top: 56px; } .hero .avatar { width: 180px; order: -1; justify-self: start; } }
 .kicker { color: var(--accent-2); font: 600 13px "Space Grotesk"; letter-spacing: .16em; text-transform: uppercase; margin: 0 0 18px; }
 h1 { font-family: "Space Grotesk"; font-size: clamp(48px, 9vw, 92px); line-height: .95; margin: 0 0 24px; letter-spacing: -.02em; }
@@ -118,6 +120,13 @@ h2 { font-family: "Space Grotesk"; font-size: clamp(32px, 5vw, 48px); text-align
 .art-hearth { background: radial-gradient(circle at 50% 70%, #ff9a3c 0%, #7a3d1a 25%, #1c3448 60%, #c9e3f2 140%); }
 .art-mesh { background: linear-gradient(135deg, #3a1c5c, #121a33); }
 .art-rail { background: linear-gradient(135deg, #0f4d3a, #10202a); }
+.art-science { background: radial-gradient(circle at 75% 30%, #196b87, #14263f 55%, #101723); }
+.research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 18px; }
+.research-card { padding: 24px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+.research-card h3 { margin: 0 0 12px; font-family: "Space Grotesk"; }
+.research-card p { color: var(--muted); margin: 0; }
+.research-note { max-width: 840px; margin: 28px auto 0; color: var(--muted); text-align: center; }
+.research-link { justify-content: center; }
 .proj-body { padding: 20px; display: flex; flex-direction: column; flex: 1; }
 .proj-body h3 { font: 700 20px "Space Grotesk"; margin: 0 0 6px; }
 .proj-body p { color: var(--muted); margin: 0 0 14px; font-size: 15px; }
@@ -183,7 +192,7 @@ footer { text-align: center; color: var(--muted); font-size: 14px; padding: 40px
   <div class="nav-inner">
     <a class="brand" href="#top"><span class="dot"></span>AYMAN KAMEL</a>
     <div class="nav-links">
-      <a href="#work">Work</a><a href="#principles">Principles</a><a href="#expertise">Expertise</a><a href="#about">About</a><a href="#contact">Contact</a>
+      <a href="scientific-profile.html">Scientific profile</a><a href="#research">Kepler</a><a href="#work">Work</a><a href="#expertise">Expertise</a><a href="#contact">Contact</a>
     </div>
     <div class="nav-actions">
       <button class="pill" id="theme" aria-label="Toggle light and dark theme">◐</button>
@@ -194,30 +203,45 @@ footer { text-align: center; color: var(--muted); font-size: 14px; padding: 40px
 
 <header class="wrap hero" id="top">
   <div>
-    <p class="kicker">Game Developer · Unreal Engine 5 · C++</p>
+    <p class="kicker">Scientific Computing · Research Software · AI Evaluation</p>
     <h1>Ayman<br><span class="outline">Kamel</span></h1>
-    <p class="tagline">Engineering game systems with the rigor of a physics solver.</p>
-    <p>I'm a <b>mechanical engineer and computer scientist</b> who builds numerical solvers, simulations and tested software. I'm now bringing that background to <b>Unreal Engine 5 C++</b>, where it matters most: <b>physics, AI, procedural generation and deterministic gameplay</b>.</p>
-    <p>I write reference tests, set numerical tolerances and verify behavior before I trust it, then ship code that is <b>data-driven, documented and easy to hand over</b>.</p>
+    <p class="tagline">Scientific models. Reproducible software. Results you can check.</p>
+    <p>I'm a <b>mechanical engineer and software developer</b> working across numerical modeling, computational mechanics and scientific AI evaluation. My current <b>Kepler project work</b> includes coupled thermal models, numerical verification and scientific benchmark prototypes.</p>
+    <p>I build command-line workflows with <b>Python, NumPy and SciPy</b>, compare calculations with reference solutions, and document the assumptions and limits behind each result.</p>
     <div class="cta">
-      <a class="btn primary" href="#work">Explore my work</a>
-      <a class="btn" href="#contact">Get in touch</a>
+      <a class="btn primary" href="scientific-profile.html">Scientific profile</a>
+      <a class="btn" href="#research">Explore Kepler</a>
+      <a class="btn" href="#work">Software &amp; games</a>
     </div>
     <div class="stats">
-      <div class="stat"><strong>8+ yrs</strong><span>shipping software</span></div>
-      <div class="stat"><strong>2</strong><span>degrees, Eng. + CS</span></div>
-      <div class="stat"><strong>3</strong><span>UE5 games in progress</span></div>
+      <div class="stat"><strong>Python</strong><span>scientific workflows</span></div>
+      <div class="stat"><strong>Numerics</strong><span>models &amp; verification</span></div>
+      <div class="stat"><strong>AI</strong><span>scientific evaluation</span></div>
     </div>
   </div>
   <div class="avatar" aria-hidden="true"><div class="avatar-inner"><span>AK</span></div></div>
 </header>
 
 <main id="main" tabindex="-1">
+<section id="research">
+  <div class="wrap">
+    <p class="eyebrow">Current project work</p>
+    <h2>Kepler · Scientific Computing</h2>
+    <p class="section-sub">Computational physics prototypes built around explicit models, reference calculations and verifiable outputs.</p>
+    <div class="research-grid reveal">
+      <article class="research-card"><h3>Coupled thermal modeling</h3><p>A conducting slab coupled to Al–Zr cluster kinetics, with thermal and chemical history carried between processing and service.</p></article>
+      <article class="research-card"><h3>Numerical verification</h3><p>Independent solver comparisons, conservation checks, selected resolution refinements and automated tests of command-line inputs and outputs.</p></article>
+      <article class="research-card"><h3>Scientific AI evaluation</h3><p>Reference checks for AI-generated solutions, including generalized eigenvalue problems, repeated modes and directional sensitivity.</p></article>
+    </div>
+    <p class="research-note">Current applications focus on materials physics and mechanics. Heat transport and numerical validation provide methodological overlap with geophysical and environmental modeling. These prototypes use synthetic inputs and have stated scientific and execution limits.</p>
+    <div class="cta research-link"><a class="btn primary" href="scientific-profile.html">Read the scientific profile →</a></div>
+  </div>
+</section>
 <section id="work">
   <div class="wrap">
     <p class="eyebrow">Selected work</p>
     <h2>Featured Projects</h2>
-    <p class="section-sub">Three Unreal Engine 5 games in active development, plus solver and production work that shaped how I build them. Open any card for the full case study.</p>
+    <p class="section-sub">Scientific prototypes, a Python constraint solver, workflow software and Unreal Engine game designs. Open a card for its approach and current status.</p>
     <div class="carousel reveal">
       <div class="track" id="track"></div>
       <noscript><p>Browse the project repositories: <a href="https://github.com/aymank2020/duatfall">DUATFALL</a>, <a href="https://github.com/aymank2020/gridline">GRIDLINE</a>, <a href="https://github.com/aymank2020/hearthwake">HEARTHWAKE</a>, <a href="https://github.com/aymank2020/ModelMesh">ModelMesh</a>, <a href="https://github.com/aymank2020/Secretariat-System-for-Railways-Egypt">Railway Secretariat</a>.</p></noscript>
@@ -230,7 +254,7 @@ footer { text-align: center; color: var(--muted); font-size: 14px; padding: 40px
   <div class="wrap">
     <p class="eyebrow">Core philosophy</p>
     <h2>Engineering Principles</h2>
-    <p class="section-sub">A fun game still needs solid engineering underneath. These are the rules I build by.</p>
+    <p class="section-sub">From scientific calculations to interactive software, I build around explicit assumptions, reproducible behavior and checks against known results.</p>
     <div class="principles reveal">
       <div class="principle"><div class="ico">⚙️</div><strong>C++ first</strong><span>Gameplay logic in C++; Blueprints wire data and visuals.</span></div>
       <div class="principle"><div class="ico">📊</div><strong>Data-driven design</strong><span>Tuning lives in Data Assets and tables, never in magic numbers.</span></div>
@@ -251,7 +275,7 @@ footer { text-align: center; color: var(--muted); font-size: 14px; padding: 40px
     <p class="section-sub">The tools and techniques I use, from engine systems to the numerical methods underneath.</p>
     <div class="skills reveal">
       <div class="skill"><h3>🎮 Unreal Engine 5</h3><ul class="tags"><li>C++</li><li>Gameplay Ability System</li><li>StateTree</li><li>Enhanced Input</li><li>Replication</li><li>PCG</li><li>Automation Tests</li></ul></div>
-      <div class="skill"><h3>🧮 Physics &amp; Numerics</h3><ul class="tags"><li>FEM / FEA</li><li>Newton-Raphson</li><li>Arc-length methods</li><li>Modal analysis</li><li>Numerical linear algebra</li><li>Stability checks</li></ul></div>
+      <div class="skill"><h3>🧮 Scientific Computing</h3><ul class="tags"><li>NumPy / SciPy</li><li>Heat transfer</li><li>ODE integration</li><li>Modal analysis</li><li>Numerical linear algebra</li><li>Conservation &amp; convergence</li></ul></div>
       <div class="skill"><h3>🧠 Algorithms &amp; AI</h3><ul class="tags"><li>A* / Dijkstra</li><li>Constraint solving</li><li>AC-3 / AC-4</li><li>Search heuristics</li><li>Utility AI</li><li>State machines</li></ul></div>
       <div class="skill"><h3>🧪 Testing &amp; Quality</h3><ul class="tags"><li>pytest</li><li>Hypothesis</li><li>Property-based testing</li><li>Reference comparisons</li><li>Regression suites</li></ul></div>
       <div class="skill"><h3>💻 Languages</h3><ul class="tags"><li>C / C++</li><li>Python</li><li>Dart / Flutter</li><li>Java / Kotlin</li><li>TypeScript</li></ul></div>
@@ -264,13 +288,14 @@ footer { text-align: center; color: var(--muted); font-size: 14px; padding: 40px
   <div class="wrap">
     <div class="philosophy reveal">
       <p class="eyebrow">Behind the code</p>
-      <h2>Trained in <span>mechanics</span>.<br>Driven by <span>play</span>.</h2>
-      <p>My background in structural mechanics taught me to distrust results I haven't verified. I build games the same way I built solvers: a clear model, explicit assumptions, tests against known answers, and measured performance. The difference is that the end result has to be fun.</p>
+      <h2>Trained in <span>mechanics</span>.<br>Driven by <span>questions</span>.</h2>
+      <p>My background in mechanics shapes how I build scientific and production software: define the model, make assumptions explicit, check against known answers, and measure behavior. Kepler gives that approach a practical focus in numerical modeling and scientific evaluation.</p>
     </div>
     <div class="about reveal">
       <div>
         <h3>Experience</h3>
         <div class="tl">
+          <div class="tl-item"><span class="when">Current project · 2026</span><strong>Scientific Computing &amp; AI Evaluation · Kepler</strong><p>Project work on coupled thermal and kinetic prototypes, reference calculations, numerical checks and evaluation of AI-generated scientific solutions.</p></div>
           <div class="tl-item"><span class="when">2026</span><strong>Numerical Solver / Structures Task Contributor · Prometheus</strong><p>Built structural-engineering benchmark tasks for AI coding agents, with reference solutions, tests, scoring logic and reproducible evaluation.</p></div>
           <div class="tl-item"><span class="when">2025 – 2026</span><strong>Railway Secretariat System · Egyptian National Railways</strong><p>Production correspondence system in Flutter with Clean Architecture, OCR/PDF import, authentication hardening and Docker deployment.</p></div>
           <div class="tl-item"><span class="when">2017 – present</span><strong>Android / Flutter Developer · Freelancer.com</strong><p>Mobile, desktop and web applications with automated tests and deployment workflows.</p></div>
@@ -294,7 +319,7 @@ footer { text-align: center; color: var(--muted); font-size: 14px; padding: 40px
   <div class="wrap">
     <div class="contact reveal">
       <p class="eyebrow">Let's talk</p>
-      <h2>Let's build something worth playing.</h2>
+      <h2>Let's build something worth verifying.</h2>
       <div class="cta">
         <a class="btn primary" href="https://www.linkedin.com/in/aymankamel2020">LinkedIn</a>
         <a class="btn" href="https://github.com/aymank2020">GitHub</a>
@@ -315,6 +340,26 @@ footer { text-align: center; color: var(--muted); font-size: 14px; padding: 40px
 
 <script>
 const projects = [
+  {
+    name: "Kepler Thermal", art: "art-science", badge: "Python · Research prototype",
+    blurb: "Coupled heat transfer and Al–Zr cluster kinetics, with retained processing history and numerical checks.",
+    tags: ["NumPy / SciPy", "ODEs", "Heat transfer", "pytest"],
+    status: "Implemented prototype · Synthetic materials model",
+    problem: ["Evaluate a shared furnace program across material regions while retaining thermal and chemical history."],
+    approach: ["Conducting slab coupled to integer-cluster kinetics", "Positive backward-Euler and independent BDF solver implementations", "CLI evaluation and optimization with structured inputs and execution journals"],
+    quality: ["Conservation, detailed-balance and selected numerical-refinement checks", "Synthetic inputs; no experimental calibration, global-optimality proof or platform acceptance claimed"],
+    links: [["Scientific project summary", "scientific-profile.html#thermal"]]
+  },
+  {
+    name: "Scientific AI Review", art: "art-mesh", badge: "Numerical methods · Evaluation",
+    blurb: "Checking AI-generated modal sensitivity solutions against mathematical and computational references.",
+    tags: ["Eigenvalues", "Repeated modes", "Directional derivatives"],
+    status: "Documented reference analysis and computational checks",
+    problem: ["Individual mode gradients can become invalid when the generalized eigenvalue problem has repeated modes."],
+    approach: ["Projected perturbation matrices within repeated eigenspaces", "Directional derivatives and first-order prediction checks"],
+    quality: ["Finite-difference comparisons and eigenspace basis-rotation checks", "Current application is mechanics; observational Earth-science data processing is not claimed"],
+    links: [["Scientific evaluation summary", "scientific-profile.html#evaluation"]]
+  },
   {
     name: "DUATFALL", art: "art-duat", badge: "Unreal Engine 5 · In development",
     blurb: "Action roguelite set in the Duat, the Egyptian underworld. Choose boons from Ra, Thoth, Sekhmet and Anubis.",

@@ -4,9 +4,8 @@ Static GitHub Pages portfolio.
 
 The homepage highlights scientific computing and the current Kepler project work.
 `scientific-profile.html` provides the English/Arabic scientific profile and links
-to downloadable text in `scientific-profile.md`. An ORCID link should only be added
-after the actual identifier is supplied and verified; this site is an independent
-portfolio profile, not an ORCID record.
+to downloadable text in `scientific-profile.md`. Both pages link to the actual
+ORCID identifier verified in the account UI: `0009-0005-0592-408X`.
 
 Serve it locally with:
 

@@ -4,6 +4,8 @@ Scientific Computing | Computational Mechanics | Research Software | Scientific 
 
 Profile: https://aymank2020.github.io/scientific-profile.html
 
+ORCID: https://orcid.org/0009-0005-0592-408X
+
 ## Biography
 
 My background is in mechanical engineering and scientific computing, with interests in numerical modeling, computational physics and verification of scientific software. My current project work in Kepler focuses on developing and reviewing scientific benchmark prototypes and evaluating AI-generated scientific solutions against mathematical and computational reference checks.
